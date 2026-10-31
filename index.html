@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Event - Halaman Utama</title>
+    <style>
+        /* Pengaturan Dasar & Tema Gelap */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #0d0d12;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigasi */
+        header {
+            background-color: rgba(13, 13, 18, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a:hover {
+            color: #b388ff;
+        }
+
+        /* Hero Section (Bagian Atas) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0d0d12 70%);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00e5ff, #b388ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #aaa;
+        }
+        .countdown {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .time-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 8px;
+            min-width: 80px;
+        }
+        .time-box span {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+            color: #00e5ff;
+        }
+        .time-box small {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Section Klan / Cards */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 80px 0 40px;
+            color: #fff;
+        }
+        .clans-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .clan-card {
+            background: #15151e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .clan-card:hover {
+            transform: translateY(-10px);
+            border-color: #b388ff;
+            box-shadow: 0 0 20px rgba(179, 136, 255, 0.2);
+        }
+        .clan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #b388ff;
+        }
+        .clan-card p {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: transparent;
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #00e5ff;
+            color: #000;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 80px;
+            background: #09090c;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Sembunyikan menu di HP untuk kesederhanaan template */
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <header>
+        <nav>
+            <div class="logo">LUMINEX</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#clans">Clans</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Bagian Hero & Countdown -->
+    <section class="hero">
+        <h1>💫 THE HIDDEN NEXUS 💫</h1>
+        <p>Di jantung kampus, di mana cahaya bersinar dengan warna mereka sendiri, sebuah harmoni menanti untuk ditemukan. Apakah kamu siap?</p>
+        
+        <div class="countdown" id="countdown">
+            <div class="time-box"><span id="days">00</span><small>Hari</small></div>
+            <div class="time-box"><span id="hours">00</span><small>Jam</small></div>
+            <div class="time-box"><span id="minutes">00</span><small>Menit</small></div>
+            <div class="time-box"><span id="seconds">00</span><small>Detik</small></div>
+        </div>
+
+        <button class="btn" style="background:#00e5ff; color:#000;">Bergabung Sekarang</button>
+    </section>
+
+    <!-- Bagian Klan -->
+    <section id="clans">
+        <h2 class="section-title">🎭 The Four Lights 🎭</h2>
+        <div class="clans-container">
+            
+            <div class="clan-card">
+                <h3>Valenor</h3>
+                <p>Dipandu oleh bisikan angin yang lembut, Valenor bergerak dengan keanggunan. Penjaga harmoni dan keseimbangan.</p>
+                <button class="btn">Enter the Nexus</button>
+            </div>
+
+            <div class="clan-card">
+                <h3>Ravenix</h3>
+                <p>Dalam presisi es kristal yang dingin, Ravenix menghitung setiap gerakan. Logika dan ketajaman adalah senjata utama.</p>
+                <button class="btn">Enter the Nexus</button>
+            </div>
+
+            <div class="clan-card">
+                <h3>Orvian</h3>
+                <p>Garis cahaya melacak jalur tak terlihat. Orvian menguraikan pola tersembunyi yang tidak terlihat oleh mata biasa.</p>
+                <button class="btn">Enter the Nexus</button>
+            </div>
+
+            <div class="clan-card">
+                <h3>Trevion</h3>
+                <p>Di mana api dan kilat berbenturan, Trevion hidup dari energi mentah. Mereka menyerang dengan keberanian.</p>
+                <button class="btn">Enter the Nexus</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright 2026 Nexus Event | Custom Hand-Coded Template</p>
+    </footer>
+
+    <!-- Script untuk Hitung Mundur (Countdown) -->
+    <script>
+        // Atur tanggal target acara (Ubah sesuai kebutuhan)
+        const countDownDate = new Date("Dec 31, 2026 23:59:59").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "ACARA TELAH DIMULAI";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
